@@ -16,7 +16,7 @@ jobs:
       - checkout
       - run:
           name: "Say hello"
-          command: "echo pipelineId, <<pipeline.id>>"
+          command: "echo pipelineId, <<pipeline.id>> && echo my name is $MY_NAME"
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
