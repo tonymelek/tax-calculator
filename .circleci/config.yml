@@ -14,12 +14,12 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - persist_to_workspace:
-          root: /workspace
+          root: .
           paths:
             - test
       - run:
           name: "Save hello"
-          command: "echo pipelineId, <<pipeline.id>> > /workspace/hello.txt"      
+          command: "echo pipelineId, <<pipeline.id>> > /test/hello.txt"      
   read-hello:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
@@ -29,10 +29,10 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - attach_workspace:
-          at: workspace # relative path to our working directory
+          at: . # relative path to our working directory
       - run:
           command: |
-            ls /workspace
+            ls /test
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
