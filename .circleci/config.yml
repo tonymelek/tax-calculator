@@ -16,7 +16,7 @@ jobs:
       - checkout
       - run:
           name: "Save hello"
-          command: "echo pipelineId, <<pipeline.id>> >hello.txt"
+          command: "echo pipelineId, <<pipeline.id>> >workspace/hello.txt"
       - persist_to_workspace:
           root: workspace
           paths:
@@ -33,7 +33,7 @@ jobs:
           at: workspace # relative path to our working directory
       - run:
           command: |
-            ls /tmp/workspace
+            ls /workspace
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
