@@ -15,7 +15,7 @@ jobs:
     steps:
       - run:
           name: "Save hello"
-          command: "echo pipelineId, <<pipeline.id>> >/workspace/hello.txt"
+          command: "echo pipelineId, <<pipeline.id>> >./workspace/hello.txt"
       - persist_to_workspace:
           root: workspace
           paths:
