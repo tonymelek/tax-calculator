@@ -18,7 +18,7 @@ jobs:
           name: "Save hello"
           command: "echo pipelineId, <<pipeline.id>> >hello.txt"
       - persist_to_workspace:
-          root: ./tmp/hello
+          root: .
           paths:
             - hello.txt
   read-hello:
@@ -31,7 +31,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: ./tmp/hello # relative path to our working directory
+          at: . # relative path to our working directory
       - run:
           command: |
             cat hello.txt
