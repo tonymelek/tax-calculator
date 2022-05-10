@@ -41,3 +41,4 @@ workflows:
     jobs:
       - save-hello
       - read-hello
+        - requires: save-hello
