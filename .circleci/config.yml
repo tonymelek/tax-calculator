@@ -38,6 +38,11 @@ jobs:
       - run:
           command: |
             ls && cat hello.txt
+      - run: exit 1      
+      - run:
+          name: on error
+          command: echo Error in previous step
+          when: on_fail
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -47,4 +52,4 @@ workflows:
       - save-hello
       - read-hello:
           requires: 
-            - save-hello
+            - save-hello    
